@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VALENTINE'S DAY</title>
+  <link rel="icon" type="image/png" sizes="100%" href="https://cdn-icons-png.flaticon.com/512/9444/9444300.png">
+  <style>
+    p {
+      text-align: center;
+      font-size: 32px;
+      font-family: Georgia, serif;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+    }
+
+    #Button1 {
+      position: fixed;
+      top: 70%;
+      left: 55%;
+      transform: translate(-50%, -50%);
+    }
+
+    #Button2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #page2 {
+      display: none;
+    }
+
+    /* Style for the overlay text */
+    #overlayText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: Georgia, serif;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    /* Style for the image container */
+    #imageContainer {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="page1">
+    <p>Will you be my Valentine?</p>
+    <button id="Button1">Yes!</button>
+    <button id="Button2">No</button>
+    <img src="https://media1.giphy.com/media/rjN9e4I4mgspy/200w.gif">
+  </div>
+
+  <div id="page2">
+    <div id="imageContainer">
+      <img src="https://ifh.cc/g/GHyDGt.jpg">
+      <div id="overlayText">I love you, Mi bebe!</div>
+    </div>
+  </div>
+
+  <script>
+    const Button1 = document.getElementById('Button1');
+    const Button2 = document.getElementById('Button2');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+
+    let left = 40;
+    Button2.addEventListener('mouseover', function() {
+      if (left == 40) {
+        left = 48;
+      } else {
+        left = 40;
+      }
+      this.style.left = left + '%';
+    });
+
+    // Update No button position when mouse moves
+    document.addEventListener('mousemove', function(event) {
+      Button2.style.top = event.clientY + 'px';
+      Button2.style.left = event.clientX + 'px';
+    });
+
+    Button1.addEventListener('click', function() {
+      // Hide page 1 and show page 2
+      page1.style.display = 'none';
+      page2.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
